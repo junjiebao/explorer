@@ -1,0 +1,284 @@
+/* 关于我们页面样式 */
+.about-main {
+    padding-top: 80px;
+    background: var(--text-light);
+}
+
+/* 公司简介部分 */
+.company-intro {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.company-intro h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 40px;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-light);
+}
+
+.intro-text p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+/* 优势部分 */
+.our-advantages {
+    padding: 80px 0;
+    background: #f8f8f8;
+}
+
+.our-advantages h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.advantage-item {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.advantage-item:hover {
+    transform: translateY(-5px);
+}
+
+.advantage-item h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.advantage-item p {
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* 服务介绍部分 */
+.our-services {
+    padding: 80px 0;
+    background: var(--primary-color);
+    color: var(--text-light);
+}
+
+.our-services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.service-item {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.15);
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.service-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-item li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.service-item li:last-child {
+    border-bottom: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .company-intro h1 {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-content {
+        padding: 0 15px;
+    }
+}
+
+/* 经纪顾问服务部分 */
+.broker-services {
+    padding: 80px 0;
+    background: var(--text-light);
+}
+
+.broker-services h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.broker-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.broker-item {
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.broker-item:hover {
+    transform: translateY(-5px);
+}
+
+.broker-item h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.broker-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.broker-item li {
+    padding: 10px 0;
+    color: var(--text-dark);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 1.1rem;
+}
+
+.broker-item li:last-child {
+    border-bottom: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 1024px) {
+    .broker-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .broker-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .broker-item {
+        padding: 20px;
+    }
+}
+
+/* 导航栏样式优化 */
+.main-nav {
+    background: rgba(15, 76, 129, 0.95);  /* 更深的蓝色背景，增加不透明度 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-links a {
+    color: #ffffff;  /* 纯白色文字 */
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);  /* 添加文字阴影 */
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.15);  /* 更明显的悬停效�� */
+    color: #ffffff;
+}
+
+/* 下拉菜单样式优化 */
+.dropdown-menu {
+    background: rgba(15, 76, 129, 0.98);  /* 更不透明的背景 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border-radius: 0 0 4px 4px;
+}
+
+.dropdown-menu a {
+    color: #ffffff;
+    padding: 15px 25px;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* 当前页面高亮显示 */
+.nav-links .current-page {
+    background: rgba(255,255,255,0.2);
+    font-weight: 600;
+} 

@@ -1,0 +1,152 @@
+/* 联系方式页面样式 */
+.contact-main {
+    padding-top: 80px;
+    background: var(--text-light);
+}
+
+/* 联系方式标题部分 */
+.contact-hero {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.contact-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact-hero .subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+}
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 全球办公室部分 */
+.global-offices {
+    padding: 80px 0;
+    background: #f8f8f8;
+}
+
+.global-offices h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.offices-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.office-item {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.office-item:hover {
+    transform: translateY(-5px);
+}
+
+.office-item h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.office-item .phone {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* 业务邮箱部分 */
+.business-emails {
+    padding: 80px 0;
+    background: var(--primary-color);
+}
+
+.business-emails h2 {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.email-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.email-item {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.email-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.15);
+}
+
+.email-item h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.email-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.email-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+    .offices-grid,
+    .email-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero h1 {
+        font-size: 2rem;
+    }
+
+    .contact-hero .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .offices-grid,
+    .email-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .office-item,
+    .email-item {
+        padding: 20px;
+    }
+} 

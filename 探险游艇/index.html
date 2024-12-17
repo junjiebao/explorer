@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探险游艇 | Explorer Yacht</title>
+    <!-- 添加网站图标 -->
+    <link rel="icon" type="image/webp" href="https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg/r%5Bwidth%5D=32&r%5Bheight%5D=32/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.webp">
+    <link rel="stylesheet" href="styles.css">
+    <!-- 预加载图片 -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-QCjC1KpA4AA">
+    <link rel="preload" as="image" href="https://images.pexels.com/photos/635705/pexels-photo-635705.jpeg">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-71NgiXcdTzE">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-dm9EHhIZm-k">
+    <link rel="preload" as="image" href="https://cdn.pixabay.com/photo/2016/11/29/13/49/yacht-1867062_1280.jpg">
+</head>
+<body>
+    <!-- 顶部小导航 -->
+    <div class="top-bar">
+        <a href="#" class="brand">
+            <img src="https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg/r%5Bwidth%5D=32&r%5Bheight%5D=32/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.webp" 
+                 alt="探险游艇"
+                 class="brand-icon">
+            <span>探险游艇 | Explorer Yacht</span>
+        </a>
+    </div>
+
+    <!-- 主导航栏 -->
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#yachts">探险游艇系列</a>
+                <ul class="dropdown-menu">
+                    <li><a href="circumnavigation.html">环球探险系列</a></li>
+                    <li><a href="research.html">科考探险系列</a></li>
+                    <li><a href="polar.html">极地探险系列</a></li>
+                    <li><a href="longrange.html">远航探险系列</a></li>
+                    <li><a href="regional.html">短距探险系列</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系方式</a></li>
+        </ul>
+        <button class="menu-btn">MENU</button>
+    </nav>
+
+    <!-- 全屏视频背景 -->
+    <div class="hero-section">
+        <div class="video-overlay"></div>
+        <video 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            class="hero-video"
+            onerror="console.error('Video loading error:', this.error);"
+            onloadstart="console.log('Video loading started');"
+            oncanplay="console.log('Video can start playing');"
+        >
+            <source src="videos/yacht-bg.mp4.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>创造
+                <span class="highlight">难忘</span>
+                探险体验
+            </h1>
+            <a href="#portfolio" class="cta-button">
+                浏览作品集
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- 品牌介绍 -->
+    <section class="brand-intro">
+        <h2 class="section-title">游艇建造师</h2>
+        <p class="intro-text">
+            我们是Ocean Explorer，专注于打造世界顶级探险游艇。凭借数十年的造船工艺传承，
+            我们为追求极致探险的航海家提供无与伦比的荷兰工艺、卓越服务与前瞻性设计。
+            始终以您的航海愿景为核心。
+        </p>
+    </section>
+
+    <!--  brand-intro 部分后添加 -->
+    <section class="yacht-categories">
+        <div class="category-grid">
+            <!-- 环球探险类 -->
+            <div class="category-item">
+                <img src="https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/JAFaZjDITWumsqmF5rxU_CircumnavigationZeepard.jpg/r%5Bwidth%5D=1920/JAFaZjDITWumsqmF5rxU_CircumnavigationZeepard.webp" 
+                     alt="环球探险游艇"
+                     loading="lazy">
+                <div class="category-overlay">
+                    <div class="category-content">
+                        <h3>CIRCUMNAVIGATION</h3>
+                        <div class="divider"></div>
+                        <h4>环球探险系列</h4>
+                        <p>专为环球航行设计，配备顶级导航系统和持久续航能力。搭载多重备用动力系统，确保您的环球之旅安全无忧。</p>
+                        <a href="#" class="explore-btn">探索系列 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 科考探险类 -->
+            <div class="category-item">
+                <img src="https://cdn.boatinternational.com/convert/files/2020/09/8e7967d0-fe3e-11ea-8303-279582a454db-OceanXplorer-3.jpg/r%5Bwidth%5D=1920/8e7967d0-fe3e-11ea-8303-279582a454db-OceanXplorer-3.webp" 
+                     alt="科考探险游艇"
+                     loading="lazy">
+                <div class="category-overlay">
+                    <div class="category-content">
+                        <h3>RESEARCH EXPLORER</h3>
+                        <div class="divider"></div>
+                        <h4>科考探险系列</h4>
+                        <p>配备专业海洋研究设备，支持深海考察与科学研究。专业实验室空间，助力海洋科研事业。</p>
+                        <a href="#" class="explore-btn">探索系列 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 极地探险类 -->
+            <div class="category-item">
+                <img src="https://cdn.boatinternational.com/files/2023/01/b1d611e0-9650-11ed-aa9b-9d3be47d7ba9-octopus-antarctica-icebergs.jpg" 
+                     alt="极地探险游艇"
+                     loading="lazy">
+                <div class="category-overlay">
+                    <div class="category-content">
+                        <h3>POLAR EXPLORER</h3>
+                        <div class="divider"></div>
+                        <h4>极地探险系列</h4>
+                        <p>专为极地环境造，配备破冰能力和极寒防护系统。搭载先进导航设备，确保极地探险安全可靠。</p>
+                        <a href="#" class="explore-btn">探索系列 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 远航探险类 -->
+            <div class="category-item">
+                <img src="https://alliedyachting.com/wp-content/uploads/2019/08/Mochi-long-range-23-for-sale-Italy-1030x662.jpg" 
+                     alt="远航探险游艇"
+                     loading="lazy">
+                <div class="category-overlay">
+                    <div class="category-content">
+                        <h3>LONG RANGE CRUISER</h3>
+                        <div class="divider"></div>
+                        <h4>远航探险系列</h4>
+                        <p>超大燃料容量设计，配备智能能源管理系统。完善的休闲设施与储存空间，让远航生活舒适自在。</p>
+                        <a href="#" class="explore-btn">探索系列 →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 短距探险类 -->
+            <div class="category-item">
+                <img src="https://i.ytimg.com/vi/inFiEiO1h7w/maxresdefault.jpg" 
+                     alt="短距探险游艇"
+                     loading="lazy">
+                <div class="category-overlay">
+                    <div class="category-content">
+                        <h3>REGIONAL EXPEDITION</h3>
+                        <div class="divider"></div>
+                        <h4>短距探险系列</h4>
+                        <p>灵活机动的设计理念，适合近海探索与短期航行。优化的动力系统与操控性能，带来轻松愉悦的探险体验。</p>
+                        <a href="#" class="explore-btn">探索系列 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const video = document.querySelector('.hero-video');
+        
+        // 监听视频加载状态
+        video.addEventListener('loadeddata', function() {
+            console.log('Video loaded successfully');
+        });
+        
+        video.addEventListener('error', function(e) {
+            console.error('Video error:', e);
+            console.error('Video error code:', video.error.code);
+            console.error('Video error message:', video.error.message);
+            console.error('Video src:', video.currentSrc);
+        });
+        
+        // 检查视频文件是否存在
+        fetch('./videos/yacht-bg.mp4.mp4')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Video file not found');
+                }
+                console.log('Video file exists');
+            })
+            .catch(error => {
+                console.error('Error checking video file:', error);
+            });
+    });
+    </script>
+</body>
+</html> 
