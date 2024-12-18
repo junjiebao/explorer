@@ -1,0 +1,566 @@
+/* 系列页面专用样式 */
+.series-main {
+    padding-top: 80px;
+    background: var(--text-light);
+}
+
+.series-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 3rem;
+    padding: 40px 0;
+}
+
+.series-hero {
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.series-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.series-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.series-content h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.series-content p {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.feature p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* 更新系列页面样式 */
+.series-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* 分类说明样式 */
+.classification {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 40px;
+    border-radius: 8px;
+    margin: 40px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.classification h2 {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.classification p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 特点部分样式优化 */
+.features {
+    margin-bottom: 60px;
+}
+
+.features h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature {
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 适合人群样式 */
+.target-users {
+    background: #f8f8f8;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 60px;
+}
+
+.user-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.user-list li:last-child {
+    border-bottom: none;
+}
+
+/* 更新案例研究样式 */
+.case-studies {
+    margin: 0;
+    background: var(--primary-color);
+    padding: 40px 40px 0;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.case-studies h2 {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.case-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.case-image {
+    height: 100%;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+.case-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.case-with-image:hover .case-image img {
+    transform: scale(1.05);
+}
+
+.case-content {
+    padding: 30px;
+    background: var(--primary-color);
+}
+
+.case-content h3,
+.case-content h2 {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.case-content p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* 中国制造部分样式 */
+.china-made {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.china-made h2 {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.china-made p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 更新中国制造部分样式 */
+.china-made.case-with-image {
+    background: var(--primary-color);
+    margin: 0;
+    border: none;
+    border-radius: 0 0 8px 8px;
+    padding-bottom: 40px;
+}
+
+.china-made .case-content {
+    padding: 40px;
+    background: var(--primary-color);
+}
+
+.china-made .case-content h2 {
+    color: var(--text-light);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.china-made .case-content p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* 响应式设计优化 */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .specs {
+        grid-template-columns: 1fr;
+    }
+    
+    .classification,
+    .target-users,
+    .case,
+    .china-made {
+        padding: 30px 20px;
+    }
+    
+    .series-content {
+        padding: 40px 15px;
+    }
+
+    .china-made {
+        padding: 30px 20px;
+    }
+
+    .china-made h2 {
+        font-size: 2rem;
+    }
+
+    .china-made p {
+        font-size: 1.1rem;
+    }
+
+    .case-with-image {
+        grid-template-columns: 1fr;
+    }
+
+    .case-image {
+        min-height: 200px;
+    }
+
+    .case-content {
+        padding: 20px;
+    }
+
+    .case-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .china-made .case-content {
+        padding: 30px 20px;
+    }
+
+    .china-made .case-content h2 {
+        font-size: 2rem;
+    }
+
+    .china-made .case-content p {
+        font-size: 1.1rem;
+    }
+} 
+
+/* 规格列表样式更新 */
+.specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.specs li {
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    background: rgba(255,255,255,0.1);
+}
+
+/* 创建一个包装容器 */
+.blue-section {
+    background: var(--primary-color);
+    margin: 60px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* 最后一个案例移除底部边距 */
+.case-studies .case-with-image:last-child {
+    margin-bottom: 0;
+}
+
+/* 更新导航栏样式 */
+.main-nav {
+    background: rgba(15, 76, 129, 0.9);  /* 半透明深蓝色背景 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);  /* 背景模糊效果 */
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 20px;
+    display: block;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.1);
+}
+
+/* 下拉菜单样式优化 */
+.dropdown-menu {
+    background: rgba(15, 76, 129, 0.95);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu a {
+    color: var(--text-light);
+    padding: 15px 25px;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* 当前页面高亮显示 */
+.nav-links .current-page {
+    background: rgba(255,255,255,0.15);
+    font-weight: 600;
+}
+
+/* 品牌展示网格 */
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.brand-item {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.brand-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.15);
+}
+
+.brand-item h3 {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.brand-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.brand-item li {
+    color: var(--text-light);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 1.1rem;
+}
+
+.brand-item li:last-child {
+    border-bottom: none;
+}
+
+.special-note {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.special-note p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .brand-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .brand-item {
+        padding: 20px;
+    }
+}
+
+.case-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.case-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.case-item:hover img {
+    transform: scale(1.05);
+}
+
+.case-content {
+    padding: 30px;
+    background: var(--primary-color);
+}
+
+.case-content h3,
+.case-content h2 {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.case-content p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.china-made .case-content {
+    padding: 30px;
+}
+
+.china-made .case-content h2 {
+    color: var(--text-light);
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.china-made .case-content p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* 案例内容的统一样式 */
+.case-content {
+    padding: 30px;
+    background: var(--primary-color);
+}
+
+.case-content h3,
+.case-content h2 {
+    color: var(--text-light);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.case-content p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+} 
