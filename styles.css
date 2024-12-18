@@ -89,13 +89,19 @@ body {
 }
 
 .menu-btn {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: none;
     border: none;
     color: var(--text-light);
-    font-size: 1rem;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: auto;
+}
+
+.menu-icon {
+    width: 24px;
+    height: auto;
 }
 
 /* 英雄区域 */
@@ -543,5 +549,112 @@ body {
     .category-grid {
         justify-content: flex-start;
         padding: 0 40px;
+    }
+}
+
+/* 手机适配 */
+@media (max-width: 768px) {
+    .main-nav {
+        display: flex;
+        flex-direction: column; /* 垂直排列 */
+        align-items: flex-start; /* 左对齐 */
+    }
+
+    .nav-links {
+        display: none; /* 默认隐藏 */
+        flex-direction: column; /* 垂直排列 */
+        width: 100%; /* 100%宽度 */
+    }
+
+    .menu-btn {
+        display: block; /* 显示菜单按钮 */
+    }
+
+    .sidebar.active {
+        display: flex; /* 显示侧边栏 */
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 单列布局 */
+    }
+
+    .portfolio-title {
+        font-size: 2rem; /* 调整标题大小 */
+    }
+
+    .main-nav {
+        padding: 15px 5%; /* 减小内边距 */
+    }
+
+    .nav-links {
+        font-size: 0.9rem; /* 减小字体大小 */
+    }
+
+    .menu-btn {
+        padding: 10px; /* 减小按钮的内边距 */
+    }
+
+    .menu-icon {
+        width: 20px; /* 调整图标大小 */
+    }
+}
+
+/* 移动端基础适配 */
+@media (max-width: 768px) {
+    /* 顶部导航栏适配 */
+    .top-bar {
+        padding: 8px 15px;
+    }
+    
+    .brand span {
+        font-size: 0.9rem;
+    }
+    
+    .brand-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* 主导航适配 */
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--primary-color);
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 10px 0;
+    }
+
+    /* 下拉菜单适配 */
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        background: transparent;
+        box-shadow: none;
+        padding: 10px 0 10px 20px;
+    }
+
+    /* 内容区域适配 */
+    .section-title {
+        font-size: 1.8rem;
+        margin: 20px 0;
+    }
+
+    .intro-text {
+        padding: 0 15px;
+        font-size: 0.9rem;
     }
 }

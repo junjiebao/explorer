@@ -100,19 +100,25 @@ section h2 {
 /* 响应式调整 */
 @media (max-width: 768px) {
     .knowledge-main {
-        padding-top: 100px;
-    }
-
-    .intro h1 {
-        font-size: 2em;
+        padding: 60px 15px 20px;
     }
 
     .content-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
 
-    .feature-list {
-        grid-template-columns: 1fr;
+    .grid-item {
+        padding: 15px;
+    }
+
+    .grid-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .grid-item p, 
+    .grid-item li {
+        font-size: 0.9rem;
     }
 } 
 

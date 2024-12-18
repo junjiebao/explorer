@@ -79,12 +79,27 @@
 @media (max-width: 768px) {
     .portfolio-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 15px;
     }
-    
-    .portfolio-title {
-        font-size: 2rem;
+
+    .portfolio-item {
+        height: 250px;
     }
-} 
+
+    .portfolio-content h2 {
+        font-size: 1.4rem;
+    }
+
+    .portfolio-content p {
+        font-size: 0.9rem;
+    }
+
+    .ebook-promotion {
+        margin: 20px 15px;
+        padding: 15px;
+    }
+}
 
 /* 顶部导航栏过渡动画 */
 .top-bar {
@@ -158,4 +173,30 @@
 .qr-code img {
     width: 100px; /* QR码大小 */
     height: auto;
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-title {
+        font-size: 2rem;
+    }
+
+    .ebook-promotion {
+        padding: 15px;
+    }
+
+    .ebook-promotion h2 {
+        font-size: 20px;
+    }
+
+    .ebook-promotion p {
+        font-size: 14px;
+    }
+
+    .qr-code img {
+        width: 80px;
+    }
 }

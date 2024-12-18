@@ -143,16 +143,25 @@
 }
 
 @media (max-width: 768px) {
-    .advantages-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
+    .about-main {
+        padding: 60px 15px 20px;
     }
 
     .company-intro h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .advantages-grid,
+    .services-grid,
+    .broker-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .advantage-item,
+    .service-item,
+    .broker-item {
+        padding: 15px;
     }
 
     .subtitle {
