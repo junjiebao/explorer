@@ -121,32 +121,40 @@
     .text-content p {
         font-size: 1rem;
     }
-}.ebook-promotion {
-   background-color: #f0f8ff; /* 背景颜色 */
-   padding: 20px;
-   border-radius: 8px;
-   text-align: center;
-   margin: 20px 0;
+}
+
+.ebook-promotion {
+    background-color: #f0f8ff; /* 背景颜色 */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px 0;
+}
 
 .ebook-promotion h2 {
-   font-size: 24px;
-   margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
 
 .ebook-promotion p {
-   font-size: 16px;
-   margin-bottom: 15px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
 
 .ebook-promotion .cta-button {
-   display: inline-block;
-   padding: 10px 20px;
-   background-color: #ffcc00; /* 按钮颜色 */
-   color: #000;
-   text-decoration: none;
-   border-radius: 5px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffcc00; /* 按钮颜色 */
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
 .qr-code {
-   margin-top: 15px;
+    margin-top: 15px;
+}
 
 .qr-code img {
-   width: 100px; /* QR码大小 */
-   height: auto;
+    width: 100px; /* QR码大小 */
+    height: auto;
+}
