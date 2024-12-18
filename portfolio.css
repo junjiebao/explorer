@@ -127,8 +127,9 @@
     background-color: #f0f8ff; /* 背景颜色 */
     padding: 20px;
     border-radius: 8px;
-    text-align: center;
-    margin: 20px 0;
+    text-align: center; /* 内容居中 */
+    margin: 20px auto; /* 上下外边距，左右自动 */
+    max-width: 600px; /* 最大宽度 */
 }
 
 .ebook-promotion h2 {
