@@ -369,13 +369,13 @@
 
 /* 更新导航栏样式 */
 .main-nav {
-    background: rgba(15, 76, 129, 0.9);  /* 半透明深蓝色背景 */
+    background: rgb(15, 76, 129);  /* 不透明深蓝色背景 */
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px);  /* 背景模糊效果 */
+    /* backdrop-filter: blur(10px);  背景模糊效果（已移除） */
 }
 
 .nav-links {
