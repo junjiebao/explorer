@@ -126,6 +126,10 @@
                     <input type="number" id="yacht-price" min="100" placeholder="例：5000">
                 </div>
                 <div class="input-group">
+                    <label for="yacht-length">游艇长度 (米)</label>
+                    <input type="number" id="yacht-length" min="10" max="150" placeholder="例：45">
+                </div>
+                <div class="input-group">
                     <label for="yacht-age">船龄 (年)</label>
                     <input type="number" id="yacht-age" min="0" max="50" placeholder="例：5">
                 </div>
@@ -190,8 +194,12 @@
                     <span class="result-label">泊位费用 (年):</span>
                     <span class="result-value" id="berth-cost">-- --</span>
                 </div>
+                <div class="result-item">
+                    <span class="result-label">保险费用 (年):</span>
+                    <span class="result-value" id="insurance-cost">-- --</span>
+                </div>
                 <div class="result-item total">
-                    <span class="result-label">年度总开支:</span>
+                    <span class="result-label">年总开支:</span>
                     <span class="result-value" id="total-cost">-- --</span>
                 </div>
                 <div class="disclaimer">
@@ -493,82 +501,132 @@
     </style>
 
     <script>
-    document.getElementById('calculate-btn').addEventListener('click', function() {
-        const price = parseFloat(document.getElementById('yacht-price').value);
-        const age = parseInt(document.getElementById('yacht-age').value);
-        const crewCount = parseInt(document.getElementById('crew-count').value);
-        const usageDays = parseInt(document.getElementById('usage-days').value);
-        const homePort = document.getElementById('home-port').value;
+    // 在计算按钮的事件监听器之前添加保险费用计算函数
+    function calculateInsuranceCost(yachtPrice, yachtAge, usageDays, homePort) {
+        // 基础保险费率范围：0.5% - 1.5%
+        let baseRate = 0.005; // 起始为0.5%
         
-        if (!price || !age || !crewCount || !usageDays) {
+        // 根据使���天数调整基础费率
+        // 假设：每年使用超过180天为高频率使用，低于60天为低频率使用
+        if (usageDays > 180) {
+            baseRate += 0.005; // 高频率使用增加0.5%
+        } else if (usageDays > 120) {
+            baseRate += 0.003; // 中高频率使用增加0.3%
+        } else if (usageDays > 60) {
+            baseRate += 0.001; // 中频率使用增加0.1%
+        }
+
+        // 根据母港位置调整费率（远程/偏远地区费率更高）
+        const portRiskFactors = {
+            // 亚太区（基准）
+            'sanya': 1.0,
+            'hongkong': 1.1,
+            'singapore': 1.1,
+            'shanghai': 1.0,
+            'tokyo': 1.2,
+            'sydney': 1.3,
+            // 欧洲区（较高）
+            'monaco': 1.2,
+            'barcelona': 1.2,
+            'athens': 1.3,
+            'rotterdam': 1.2,
+            'hamburg': 1.2,
+            // 美洲区（较高）
+            'miami': 1.2,
+            'panama': 1.4,
+            'vancouver': 1.3,
+            'sandiego': 1.2,
+            // 中东区（高风险）
+            'dubai': 1.4,
+            'doha': 1.4
+        };
+
+        // 应用港口风险系数
+        let adjustedRate = baseRate * portRiskFactors[homePort];
+
+        // 船龄影响（每年增加1%，但总增幅不超过50%��
+        const ageIncrease = Math.min(yachtAge * 0.01, 0.5);
+        adjustedRate *= (1 + ageIncrease);
+
+        // 确保最终费率不超过2%
+        adjustedRate = Math.min(adjustedRate, 0.02);
+
+        // 计算年度保险费用
+        return yachtPrice * adjustedRate;
+    }
+
+    // 修改泊位费用计算部分
+    function calculateBerthCost(length, homePort) {
+        // 基础年费（美元）按不同地区设置
+        const portBasePrices = {
+            // 地中海区域（最贵）
+            'monaco': 450000,      // 摩纳哥最贵
+            'barcelona': 300000,   // 巴塞罗那
+            'athens': 200000,      // 雅典相对便宜
+
+            // 美洲区域
+            'miami': 250000,       // 迈阿密
+            'panama': 100000,      // 巴拿马
+            'vancouver': 180000,   // 温哥华
+            'sandiego': 220000,    // 圣地亚哥
+
+            // 中东区域
+            'dubai': 150000,       // 迪拜
+            'doha': 150000,        // 多哈
+
+            // 亚太区域
+            'sanya': 80000,        // 三亚
+            'hongkong': 200000,    // 香港
+            'singapore': 120000,   // 新加坡
+            'shanghai': 100000,    // 上海
+            'tokyo': 250000,       // 东京
+            'sydney': 180000       // 悉尼
+        };
+
+        // 长度调整系数（基于50米标准）
+        let lengthFactor = length / 50;
+        
+        // 超大型游艇额外调整
+        if (length > 100) {
+            lengthFactor *= 1.3;
+        } else if (length > 70) {
+            lengthFactor *= 1.2;
+        }
+
+        // 计算年度泊位费用（单位：万美元）
+        const annualCost = (portBasePrices[homePort] * lengthFactor) / 10000;
+        
+        return annualCost;
+    }
+
+    // 计算按钮的事件监听器
+    document.getElementById('calculate-btn').addEventListener('click', function() {
+        // 获取输入值
+        const yachtPrice = parseFloat(document.getElementById('yacht-price').value);
+        const yachtLength = parseFloat(document.getElementById('yacht-length').value);
+        const yachtAge = parseFloat(document.getElementById('yacht-age').value);
+        const crewCount = parseFloat(document.getElementById('crew-count').value);
+        const usageDays = parseFloat(document.getElementById('usage-days').value);
+        const homePort = document.getElementById('home-port').value;
+
+        // 验证输入
+        if (!yachtPrice || !yachtLength || !yachtAge || !crewCount || !usageDays) {
             alert('请填写完整信息');
             return;
         }
 
-        // 维护成本计算（大幅降低基础维护率）
-        const maintenanceCost = price * (0.02 + age * 0.001); // 从5%降至2%，年增长率从0.2%降至0.1%
-        
-        // 船员成本计算（保持不变）
-        const portSalaryMultiplier = {
-            // 亚太区
-            'sanya': 0.6,
-            'hongkong': 0.9,
-            'singapore': 0.85,
-            'shanghai': 0.7,
-            'tokyo': 1.0,
-            'sydney': 0.95,
-            // 欧洲区
-            'monaco': 1.1,
-            'barcelona': 0.9,
-            'athens': 0.8,
-            'rotterdam': 1.0,
-            'hamburg': 1.0,
-            // 美洲区
-            'miami': 1.0,
-            'panama': 0.7,
-            'vancouver': 0.95,
-            'sandiego': 1.0,
-            // 中东区
-            'dubai': 0.9,
-            'doha': 0.85
-        };
-        const crewCost = crewCount * 15 * portSalaryMultiplier[homePort];
-        
-        // 新的燃料成本计算
-        // 每小时200升，每天8小时，燃油价格按1美元/升
-        const fuelCost = 200 * 8 * usageDays / 10000; // 除以10000转换为万美元
-        
-        // 泊位费用计算（按实际市场价格调整）
-        const portCostMultiplier = {
-            // 亚太区（相对便宜）
-            'sanya': 0.3,
-            'hongkong': 0.8,
-            'singapore': 0.6,
-            'shanghai': 0.5,
-            'tokyo': 0.9,
-            'sydney': 0.7,
-            // 欧洲区���较贵）
-            'monaco': 1.0,
-            'barcelona': 0.8,
-            'athens': 0.6,
-            'rotterdam': 0.7,
-            'hamburg': 0.7,
-            // 美洲区（中等）
-            'miami': 0.7,
-            'panama': 0.4,
-            'vancouver': 0.6,
-            'sandiego': 0.7,
-            // 中东区（较便宜）
-            'dubai': 0.5,
-            'doha': 0.5
-        };
-        // 新的泊位费计算公式：
-        // 基础月费（美元）= 长度 * 100
-        const berthCost = price * 100 * 12 * portCostMultiplier[homePort] / 10000; // 除以10000转换为万美元
-        
-        // 计算年度总开支
-        const totalCost = maintenanceCost + crewCost + fuelCost + berthCost;
-        
+        // 计算泊位费用
+        const berthCost = calculateBerthCost(yachtLength, homePort);
+
+        // 计算各项成本
+        const maintenanceCost = yachtPrice * (0.03 + yachtAge * 0.02);
+        const crewCost = crewCount * 6;
+        const fuelCost = (yachtPrice * 0.002) * (usageDays / 30);
+        const insuranceCost = calculateInsuranceCost(yachtPrice, yachtAge, usageDays, homePort);
+
+        // 计算总成本
+        const totalCost = maintenanceCost + crewCost + fuelCost + berthCost + insuranceCost;
+
         // 更新显示结果
         document.getElementById('maintenance-cost').textContent = 
             `${maintenanceCost.toFixed(0)}万美元/年`;
@@ -577,7 +635,9 @@
         document.getElementById('fuel-cost').textContent = 
             `${fuelCost.toFixed(0)}万美元/年`;
         document.getElementById('berth-cost').textContent = 
-            `${berthCost.toFixed(0)}万美元/年`;
+            `${berthCost.toFixed(1)}万美元/年`;
+        document.getElementById('insurance-cost').textContent = 
+            `${insuranceCost.toFixed(0)}万美元/年`;
         document.getElementById('total-cost').textContent = 
             `${totalCost.toFixed(0)}万美元/年`;
     });
@@ -587,7 +647,7 @@
     <section class="brand-intro">
         <h2 class="section-title">探险游艇专家</h2>
         <p class="intro-text">
-            近年来，探险游艇在世界范围内广泛受到重视和追捧，而且在东亚和东南亚市场逐渐崭露头角，吸引了越来越多的目光，也成为亚洲和华人市场的新宠儿。许多著名游艇制造厂、中小规模的造船企业，以及新兴品牌，都在这一领域展现出极大的兴趣。探险游艇融合了科技、冒险精神和卓越舒适体验，既满足了船东们对广阔未知海域的探索渴望，也象征了一种蓝色生活方式的全新表达，代表着个人品位的升和生活方式的多样化追求。
+            近年来，探险游艇在世界范围内广泛受到重视和追捧，而且在东亚和东南亚市场逐渐崭露头角，引了越来越多的目光，也成为亚洲和华人市场的新宠儿。许多著名游艇制造厂、中小规模的造船企业，以及新兴品牌，都在这一领域展现出极大的兴趣。探险游艇融合了科技、冒险精和卓越舒适体验，既满足了船东们对广阔未知海域的探索渴望，也象征了一种蓝色生活方式的全新表达，代表着个人品位的升和生活方式的多样化追求。
         </p>
     </section>
 
@@ -735,7 +795,9 @@
     </script>
 
     <!-- 添加版权信息 -->
-  
+    <footer>
+        <p>Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
+    </footer>
 
     <!-- 在cost-calculator部分后添加需求问卷 -->
     <section class="survey-link-section">
@@ -745,7 +807,7 @@
                 为了更好地了解您的需求，我们准备了详细的调研问卷。通过填写问卷，我们的专业团队可以为您提供更精准的游艇推荐和服务方案。
             </p>
             <a href="survey.html" class="survey-link-button">
-                填写需求调研问卷
+                写需求调研问卷
                 <span class="arrow">→</span>
             </a>
         </div>
@@ -789,7 +851,4 @@
     }
     </style>
 </body>
-      <footer>
-        <p>Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
-    </footer>
 </html> 
