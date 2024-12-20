@@ -11,7 +11,7 @@
     
     <!-- Open Graph 标签 (用于社交媒体分享) -->
     <meta property="og:title" content="探险游艇 | 环球航行、远航、科考、极地探险游艇专家">
-    <meta property="og:description" content="专业探险游艇服务，提供环球航行、远航、科考、极地探险等各类游艇。享受豪华游艇生活，体验海上探险。">
+    <meta property="og:description" content="专业探险游艇服务，提供环球航行、远航、科考、极地探险等各类游艇。享受豪华游艇生活，体验海上探险">
     <meta property="og:image" content="https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg">
     <meta property="og:url" content="https://www.tanxianyouting.com">
     
@@ -99,18 +99,495 @@
                 <span class="highlight">难忘</span>
                 探险体验
             </h1>
-            <a href="portfolio.html" class="cta-button">
-                浏览探险游艇种类
-                <span class="arrow">→</span>
-            </a>
+            <div class="hero-buttons">
+                <a href="portfolio.html" class="transparent-button">
+                    浏览探险游艇种类
+                    <span class="arrow">→</span>
+                </a>
+                <a href="#cost-calculator" class="transparent-button cost-btn">
+                    游艇持有成本计算
+                    <span class="arrow">→</span>
+                </a>
+                <a href="survey.html" class="transparent-button survey-btn">
+                    游艇购买调研问卷
+                    <span class="arrow">→</span>
+                </a>
+            </div>
         </div>
     </div>
+
+    <!-- hero-section 后，brand-intro 前添加 -->
+    <section id="cost-calculator" class="cost-calculator">
+        <h2 class="calculator-title">探险游艇持有成本估算</h2>
+        <div class="calculator-container">
+            <div class="calculator-form">
+                <div class="input-group">
+                    <label for="yacht-price">游艇购置成本 (万美元)</label>
+                    <input type="number" id="yacht-price" min="100" placeholder="例：5000">
+                </div>
+                <div class="input-group">
+                    <label for="yacht-age">船龄 (年)</label>
+                    <input type="number" id="yacht-age" min="0" max="50" placeholder="例：5">
+                </div>
+                <div class="input-group">
+                    <label for="crew-count">船员数量 (人)</label>
+                    <input type="number" id="crew-count" min="2" max="30" placeholder="例：8">
+                </div>
+                <div class="input-group">
+                    <label for="usage-days">年使用天数</label>
+                    <input type="number" id="usage-days" min="1" max="365" placeholder="例：120">
+                </div>
+                <div class="input-group">
+                    <label for="home-port">母港位置</label>
+                    <select id="home-port">
+                        <!-- 亚太区 -->
+                        <optgroup label="亚太区">
+                            <option value="sanya">三亚</option>
+                            <option value="hongkong">香港</option>
+                            <option value="singapore">新加坡</option>
+                            <option value="shanghai">上海</option>
+                            <option value="tokyo">东京</option>
+                            <option value="sydney">悉尼</option>
+                        </optgroup>
+                        <!-- 欧洲区 -->
+                        <optgroup label="欧洲区">
+                            <option value="monaco">摩纳哥</option>
+                            <option value="barcelona">巴塞罗那</option>
+                            <option value="athens">雅典</option>
+                            <option value="rotterdam">鹿特丹</option>
+                            <option value="hamburg">汉堡</option>
+                        </optgroup>
+                        <!-- 美洲区 -->
+                        <optgroup label="美洲区">
+                            <option value="miami">迈阿密</option>
+                            <option value="panama">巴拿马</option>
+                            <option value="vancouver">温哥华</option>
+                            <option value="sandiego">圣地亚哥</option>
+                        </optgroup>
+                        <!-- 中东区 -->
+                        <optgroup label="中东区">
+                            <option value="dubai">迪拜</option>
+                            <option value="doha">多哈</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <button id="calculate-btn" class="calculate-button">计算估价</button>
+            </div>
+            <div class="calculator-results">
+                <div class="result-item">
+                    <span class="result-label">年度维护成本:</span>
+                    <span class="result-value" id="maintenance-cost">-- --</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">船员开支 (年):</span>
+                    <span class="result-value" id="crew-cost">-- --</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">燃料成本 (年):</span>
+                    <span class="result-value" id="fuel-cost">-- --</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">泊位费用 (年):</span>
+                    <span class="result-value" id="berth-cost">-- --</span>
+                </div>
+                <div class="result-item total">
+                    <span class="result-label">年度总开支:</span>
+                    <span class="result-value" id="total-cost">-- --</span>
+                </div>
+                <div class="disclaimer">
+                    本估算仅供参考，如需要更准确信息请联系我们
+                </div>
+                <a href="contact.html" class="contact-btn">
+                    联系我们获取更准确信息
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    .cost-calculator {
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        margin-top: -2px;
+    }
+
+    .calculator-title {
+        text-align: center;
+        color: #1a365d;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+
+    .calculator-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 40px;
+        padding: 30px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .calculator-form {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 25px;
+    }
+
+    .input-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #2d3748;
+        font-weight: 500;
+    }
+
+    .input-group input,
+    .input-group select {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus {
+        border-color: #4299e1;
+        outline: none;
+    }
+
+    .calculate-button {
+        width: 100%;
+        padding: 15px;
+        background: #2b6cb0;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .calculate-button:hover {
+        background: #2c5282;
+    }
+
+    .calculator-results {
+        flex: 1;
+        padding: 20px;
+        background: #f7fafc;
+        border-radius: 12px;
+    }
+
+    .result-item {
+        padding: 20px;
+        margin-bottom: 15px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .result-label {
+        color: #4a5568;
+        font-weight: 500;
+    }
+
+    .result-value {
+        float: right;
+        color: #2b6cb0;
+        font-weight: 600;
+    }
+
+    .result-item.total {
+        background: #2b6cb0;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .result-item.total .result-label,
+    .result-item.total .result-value {
+        color: white;
+        font-size: 1.2em;
+    }
+
+    .disclaimer {
+        text-align: center;
+        color: #666;
+        font-size: 0.9em;
+        margin-top: 15px;
+        font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+        .calculator-container {
+            flex-direction: column;
+        }
+        
+        .calculator-title {
+            font-size: 2em;
+        }
+    }
+
+    .contact-btn {
+        display: block;
+        text-align: center;
+        padding: 15px;
+        margin-top: 20px;
+        background: #2b6cb0;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+
+    .contact-btn:hover {
+        background: #2c5282;
+    }
+
+    .contact-btn .arrow {
+        margin-left: 8px;
+    }
+
+    .yacht-survey {
+        padding: 60px 20px;
+        background: #f8fafc;
+    }
+
+    .survey-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .survey-form .form-group {
+        margin-bottom: 25px;
+    }
+
+    .survey-form label {
+        display: block;
+        margin-bottom: 10px;
+        color: #2d3748;
+        font-weight: 500;
+    }
+
+    .survey-form select,
+    .survey-form input[type="text"] {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .checkbox-group {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .checkbox-group label {
+        display: flex;
+        align-items: center;
+        font-weight: normal;
+    }
+
+    .checkbox-group input[type="checkbox"] {
+        margin-right: 8px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: #2b6cb0;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+        background: #2c5282;
+    }
+
+    @media (max-width: 768px) {
+        .survey-container {
+            padding: 20px;
+        }
+        
+        .checkbox-group {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .transparent-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 24px;
+        color: #fff;
+        text-decoration: none;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(5px);
+    }
+
+    .transparent-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: #fff;
+        transform: translateY(-2px);
+    }
+
+    .transparent-button .arrow {
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .transparent-button:hover .arrow {
+        transform: translateX(4px);
+    }
+
+    /* 为成本计算按钮添加平滑滚动 */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .transparent-button {
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+            font-size: 16px;
+        }
+    }
+    </style>
+
+    <script>
+    document.getElementById('calculate-btn').addEventListener('click', function() {
+        const price = parseFloat(document.getElementById('yacht-price').value);
+        const age = parseInt(document.getElementById('yacht-age').value);
+        const crewCount = parseInt(document.getElementById('crew-count').value);
+        const usageDays = parseInt(document.getElementById('usage-days').value);
+        const homePort = document.getElementById('home-port').value;
+        
+        if (!price || !age || !crewCount || !usageDays) {
+            alert('请填写完整信息');
+            return;
+        }
+
+        // 维护成本计算（大幅降低基础维护率）
+        const maintenanceCost = price * (0.02 + age * 0.001); // 从5%降至2%，年增长率从0.2%降至0.1%
+        
+        // 船员成本计算（保持不变）
+        const portSalaryMultiplier = {
+            // 亚太区
+            'sanya': 0.6,
+            'hongkong': 0.9,
+            'singapore': 0.85,
+            'shanghai': 0.7,
+            'tokyo': 1.0,
+            'sydney': 0.95,
+            // 欧洲区
+            'monaco': 1.1,
+            'barcelona': 0.9,
+            'athens': 0.8,
+            'rotterdam': 1.0,
+            'hamburg': 1.0,
+            // 美洲区
+            'miami': 1.0,
+            'panama': 0.7,
+            'vancouver': 0.95,
+            'sandiego': 1.0,
+            // 中东区
+            'dubai': 0.9,
+            'doha': 0.85
+        };
+        const crewCost = crewCount * 15 * portSalaryMultiplier[homePort];
+        
+        // 新的燃料成本计算
+        // 每小时200升，每天8小时，燃油价格按1美元/升
+        const fuelCost = 200 * 8 * usageDays / 10000; // 除以10000转换为万美元
+        
+        // 泊位费用计算（按实际市场价格调整）
+        const portCostMultiplier = {
+            // 亚太区（相对便宜）
+            'sanya': 0.3,
+            'hongkong': 0.8,
+            'singapore': 0.6,
+            'shanghai': 0.5,
+            'tokyo': 0.9,
+            'sydney': 0.7,
+            // 欧洲区���较贵）
+            'monaco': 1.0,
+            'barcelona': 0.8,
+            'athens': 0.6,
+            'rotterdam': 0.7,
+            'hamburg': 0.7,
+            // 美洲区（中等）
+            'miami': 0.7,
+            'panama': 0.4,
+            'vancouver': 0.6,
+            'sandiego': 0.7,
+            // 中东区（较便宜）
+            'dubai': 0.5,
+            'doha': 0.5
+        };
+        // 新的泊位费计算公式：
+        // 基础月费（美元）= 长度 * 100
+        const berthCost = price * 100 * 12 * portCostMultiplier[homePort] / 10000; // 除以10000转换为万美元
+        
+        // 计算年度总开支
+        const totalCost = maintenanceCost + crewCost + fuelCost + berthCost;
+        
+        // 更新显示结果
+        document.getElementById('maintenance-cost').textContent = 
+            `${maintenanceCost.toFixed(0)}万美元/年`;
+        document.getElementById('crew-cost').textContent = 
+            `${crewCost.toFixed(0)}万美元/年`;
+        document.getElementById('fuel-cost').textContent = 
+            `${fuelCost.toFixed(0)}万美元/年`;
+        document.getElementById('berth-cost').textContent = 
+            `${berthCost.toFixed(0)}万美元/年`;
+        document.getElementById('total-cost').textContent = 
+            `${totalCost.toFixed(0)}万美元/年`;
+    });
+    </script>
 
     <!-- 品牌介绍 -->
     <section class="brand-intro">
         <h2 class="section-title">探险游艇专家</h2>
         <p class="intro-text">
-            近年来，探险游艇在世界范围内广泛受到重视和追捧，而且在东亚和东南亚市场逐渐崭露头角，吸引了越来越多的目光，也成为亚洲和华人市场的新宠儿。许多著名游艇制造厂、中小规模的造船企业，以及新兴品牌，都在这一领域展现出极大的兴趣。探险游艇融合了高科技、冒险精神和卓越的舒适体验，既满足了船东们对广阔未知海域的探索渴望，也象征了一种蓝色生活方式的全新表达，代表着个人品位的提升和生活方式的多样化追求。
+            近年来，探险游艇在世界范围内广泛受到重视和追捧，而且在东亚和东南亚市场逐渐崭露头角，吸引了越来越多的目光，也成为亚洲和华人市场的新宠儿。许多著名游艇制造厂、中小规模的造船企业，以及新兴品牌，都在这一领域展现出极大的兴趣。探险游艇融合了科技、冒险精神和卓越舒适体验，既满足了船东们对广阔未知海域的探索渴望，也象征了一种蓝色生活方式的全新表达，代表着个人品位的升和生活方式的多样化追求。
         </p>
     </section>
 
@@ -129,7 +606,7 @@
                             <div class="divider"></div>
                             <h4>环球探险系列</h4>
                             <p>专为环球航行设计，配备顶级导航系统和持久续航能力。搭载多重备用动力系统，确保您的环球之旅安全无忧。</p>
-                            <span class="explore-btn">探索系列 →</span>
+                            <span class="explore-btn">探索列 →</span>
                         </div>
                     </div>
                 </a>
@@ -176,7 +653,7 @@
                             <h3>LONG RANGE CRUISER</h3>
                             <div class="divider"></div>
                             <h4>远航探险系列</h4>
-                            <p>超大燃料容量设计，配备智能能源管理系统。完善的休闲设施与储存空间，让远航生活舒适自在。</p>
+                            <p>超大燃料容量设计，配智能能源管理系统。完善的休闲设施与储存空间，让远航生活舒适自在。</p>
                             <span class="explore-btn">探索系列 →</span>
                         </div>
                     </div>
@@ -261,5 +738,57 @@
     <footer>
         <p>Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
     </footer>
+
+    <!-- 在cost-calculator部分后添加需求问卷 -->
+    <section class="survey-link-section">
+        <div class="container">
+            <h2 class="section-title">探险游艇需求调研</h2>
+            <p class="section-description">
+                为了更好地了解您的需求，我们准备了详细的调研问卷。通过填写问卷，我们的专业团队可以为您提供更精准的游艇推荐和服务方案。
+            </p>
+            <a href="survey.html" class="survey-link-button">
+                填写需求调研问卷
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <style>
+    .survey-link-section {
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+        text-align: center;
+    }
+
+    .survey-link-section .container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .section-description {
+        color: #4a5568;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .survey-link-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background: #2b6cb0;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 18px;
+        transition: background 0.3s;
+    }
+
+    .survey-link-button:hover {
+        background: #2c5282;
+    }
+
+    .survey-link-button .arrow {
+        margin-left: 10px;
+    }
+    </style>
 </body>
 </html> 

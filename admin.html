@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>需求调研管理后台 - Explorer Yacht</title>
+    <style>
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .survey-list {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .survey-list th,
+        .survey-list td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        .survey-list th {
+            background: #f5f7fa;
+        }
+        .survey-list tr:hover {
+            background: #f8fafc;
+        }
+        .status-filter {
+            margin-bottom: 20px;
+        }
+        .action-btn {
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+        .view-btn {
+            background: #4299e1;
+            color: white;
+        }
+        .export-btn {
+            background: #48bb78;
+            color: white;
+            margin-left: 10px;
+        }
+        .excel-files-section {
+            margin: 40px 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .file-list {
+            margin-top: 20px;
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #edf2f7;
+        }
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        .file-name {
+            font-size: 16px;
+            color: #2d3748;
+        }
+        .download-btn {
+            padding: 8px 16px;
+            background: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #3182ce;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>需求调研管理后台</h1>
+        
+        <div class="status-filter">
+            <select id="status-filter">
+                <option value="all">全部状态</option>
+                <option value="new">新提交</option>
+                <option value="processing">处理中</option>
+                <option value="contacted">已联系</option>
+                <option value="completed">已完成</option>
+            </select>
+            <button onclick="exportToExcel()" class="action-btn export-btn">导出Excel</button>
+        </div>
+
+        <table class="survey-list">
+            <thead>
+                <tr>
+                    <th>提交时间</th>
+                    <th>姓名</th>
+                    <th>联系方式</th>
+                    <th>预算范围</th>
+                    <th>游艇尺寸</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="survey-list-body">
+                <!-- 数据将通过JavaScript动态填充 -->
+            </tbody>
+        </table>
+
+        <div class="excel-files-section">
+            <h2>调研数据文件</h2>
+            <div class="file-list" id="file-list">
+                <!-- 文件列表将通过JavaScript动态填充 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情弹窗 -->
+    <div id="detail-modal" class="modal" style="display: none;">
+        <!-- 弹窗内容 -->
+    </div>
+
+    <script>
+    // 获取调研数据
+    async function loadSurveyData() {
+        try {
+            const response = await fetch('/api/get-surveys');
+            const data = await response.json();
+            renderSurveyList(data);
+        } catch (error) {
+            console.error('加载数据失败：', error);
+        }
+    }
+
+    // 渲染列表
+    function renderSurveyList(data) {
+        const tbody = document.getElementById('survey-list-body');
+        tbody.innerHTML = data.map(item => `
+            <tr>
+                <td>${new Date(item.submitTime).toLocaleString()}</td>
+                <td>${item.name}</td>
+                <td>${item.contact}</td>
+                <td>${item.budget}</td>
+                <td>${item.size_range}</td>
+                <td>${item.status}</td>
+                <td>
+                    <button onclick="viewDetail('${item.id}')" class="action-btn view-btn">
+                        查看详情
+                    </button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    // 导出Excel
+    function exportToExcel() {
+        window.location.href = '/api/export-surveys';
+    }
+
+    // 查看详情
+    async function viewDetail(id) {
+        try {
+            const response = await fetch(`/api/survey-detail/${id}`);
+            const data = await response.json();
+            showDetailModal(data);
+        } catch (error) {
+            console.error('获取详情失败：', error);
+        }
+    }
+
+    // 页面加载时获取数据
+    document.addEventListener('DOMContentLoaded', loadSurveyData);
+
+    // 状态筛选
+    document.getElementById('status-filter').addEventListener('change', function(e) {
+        const status = e.target.value;
+        fetch(`/api/get-surveys?status=${status}`)
+            .then(res => res.json())
+            .then(data => renderSurveyList(data))
+            .catch(error => console.error('筛选失败：', error));
+    });
+
+    // 添加获取文件列表的函数
+    async function loadExcelFiles() {
+        try {
+            const response = await fetch('/api/admin/survey-files', {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+                }
+            });
+            
+            if (response.ok) {
+                const files = await response.json();
+                const fileList = document.getElementById('file-list');
+                
+                fileList.innerHTML = files.map(file => `
+                    <div class="file-item">
+                        <span class="file-name">${file.name}</span>
+                        <a href="${file.path}" 
+                           class="download-btn"
+                           download
+                           onclick="downloadFile(event, '${file.path}')">
+                            下载
+                        </a>
+                    </div>
+                `).join('');
+            }
+        } catch (error) {
+            console.error('获取文件列表失败：', error);
+        }
+    }
+
+    // 添加文件下载函数
+    async function downloadFile(event, filePath) {
+        event.preventDefault();
+        try {
+            const response = await fetch(filePath, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+                }
+            });
+            
+            if (response.ok) {
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filePath.split('/').pop();
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                a.remove();
+            }
+        } catch (error) {
+            console.error('下载文件失败：', error);
+            alert('下载失败，请重试');
+        }
+    }
+
+    // 页面加载时获取文件列表
+    document.addEventListener('DOMContentLoaded', loadExcelFiles);
+    </script>
+</body>
+</html> 

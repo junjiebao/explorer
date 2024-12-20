@@ -45,10 +45,20 @@
         <section class="company-intro">
             <div class="section-content">
                 <h1>探险游艇 | Explorer Yacht</h1>
-                <p class="subtitle">协助船东打造世界顶级探险游艇</p>
+                <p class="subtitle">阿联酋New Yachting公司，协助船东打造世界顶级探险游艇</p>
                 <div class="intro-text">
                     <p>我们是一家专注于探险与远航游艇的专业公司，致力于为全球航海爱好者提供探险游艇购买与建造服务。凭借丰富的航行经验和对造船技术和施工工艺的深刻理解，我们不断追求卓越服务品质，确保为每位客户打造独一无二的海上探险旅程，成就非凡的航海体验。</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- 在"我们的优势"部分前添加调研入口 -->
+        <section class="survey-entry">
+            <div class="container">
+                <a href="survey.html" class="survey-button">
+                    <span class="button-text">游艇购买调研问卷</span>
+                    <span class="button-arrow">→</span>
+                </a>
             </div>
         </section>
 
@@ -108,7 +118,7 @@
                     <div class="service-item">
                         <h3>培训支持</h3>
                         <ul>
-                            <li>船员培训管理</li>
+                            <li>船员培��管理</li>
                             <li>操作使用指导</li>
                             <li>安全制度培训</li>
                             <li>应急处理培训</li>
@@ -162,7 +172,9 @@
             <span>首页</span>
         </a>
     </div>
-
+    <footer>
+        <p>Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
+    </footer>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const topBar = document.querySelector('.top-bar');
@@ -184,5 +196,65 @@
         });
     });
     </script>
+
+    <style>
+    /* 调研入口样式 */
+    .survey-entry {
+        text-align: center;
+        padding: 40px 0;
+        background: linear-gradient(to right, rgba(45, 55, 72, 0.05), rgba(45, 55, 72, 0.1));
+        margin: 40px 0;
+    }
+
+    .survey-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 32px;
+        background: #2b6cb0;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        box-shadow: 0 4px 6px rgba(45, 55, 72, 0.1);
+    }
+
+    .survey-button:hover {
+        background: #2c5282;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(45, 55, 72, 0.15);
+    }
+
+    .button-text {
+        margin-right: 12px;
+    }
+
+    .button-arrow {
+        font-size: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .survey-button:hover .button-arrow {
+        transform: translateX(4px);
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+        .survey-entry {
+            padding: 30px 20px;
+        }
+        
+        .survey-button {
+            width: 90%;
+            max-width: 320px;
+            padding: 14px 24px;
+            font-size: 16px;
+        }
+    }
+    </style>
 </body>
+
 </html> 

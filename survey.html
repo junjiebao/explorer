@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探险游艇需求调研 - Explorer Yacht</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .survey-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            color: #2d3748;
+            font-size: 2em;
+        }
+
+        .main-nav {
+            background: #0F4C81;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #63b3ed;
+        }
+
+        .top-bar {
+            background: #0F4C81;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .top-bar .brand {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .site-footer {
+            background: #2d3748;
+            color: #fff;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left {
+            font-size: 0.9em;
+            color: #a0aec0;
+        }
+
+        .admin-link {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 6px 12px;
+            border: 1px solid #4a5568;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .admin-link:hover {
+            color: #fff;
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .survey-container {
+                padding: 10px;
+            }
+            
+            iframe {
+                min-height: 600px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="index.html" class="brand">
+            <img src="https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg/r%5Bwidth%5D=32&r%5Bheight%5D=32/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.webp" 
+                 alt="探险游艇"
+                 class="brand-icon">
+            <span>探险游艇 | Explorer Yacht</span>
+        </a>
+    </div>
+
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li class="dropdown">
+                <a href="index.html">探险游艇分类</a>
+                <ul class="dropdown-menu">
+                    <li><a href="circumnavigation.html">环球探险游艇</a></li>
+                    <li><a href="research.html">科考探险游艇</a></li>
+                    <li><a href="polar.html">极地探险游艇</a></li>
+                    <li><a href="longrange.html">远航探险游艇</a></li>
+                    <li><a href="regional.html">短距探险游艇</a></li>
+                </ul>
+            </li>
+            <li><a href="knowledge.html">探险游艇知识</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系方式</a></li>
+        </ul>
+        <button class="menu-btn">MENU</button>
+    </nav>
+
+    <div class="page-container">
+        <section class="survey-section">
+            <h2 class="section-title">探险游艇需求调研</h2>
+            <div class="survey-container">
+                <iframe 
+                    src="https://biminibrokers.sg.larksuite.com/share/base/form/shrlg7pB91e3UjdYrUBWAkGPFbd"
+                    frameborder="0"
+                    width="100%"
+                    style="min-height: 800px; border: none; background: #fff; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                </iframe>
+            </div>
+        </section>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="admin-login.html" class="admin-link">管理入口</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.querySelector('.menu-btn').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('show');
+    });
+    </script>
+</body>
+</html> 

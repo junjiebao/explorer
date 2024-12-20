@@ -16,4 +16,7 @@
           <li><a href="contact.html">联系方式</a></li>
       </ul>
       <button class="menu-btn">MENU</button>
+       <footer>
+        <p>Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
+    </footer>
   </nav>
