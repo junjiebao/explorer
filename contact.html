@@ -145,8 +145,56 @@
         });
     });
     </script>
-     <footer>
-        <p>Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
+
+    <!-- 在footer部分之前添加计数器脚本 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- 修改footer部分 -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
+            <div class="visit-counter">
+                <span id="busuanzi_container_site_pv" style="display: inline;">
+                    访问量: <span id="busuanzi_value_site_pv"></span>
+                </span>
+            </div>
+        </div>
     </footer>
+
+    <style>
+    /* 添加计数器样式 */
+    .footer-content {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .copyright {
+        margin: 0;
+    }
+
+    .visit-counter {
+        font-size: 0.8em;
+        color: #a0aec0;
+        opacity: 0.8;
+    }
+
+    /* 移动端适配 */
+    @media (max-width: 768px) {
+        .footer-content {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+        }
+        
+        .visit-counter {
+            margin-top: 5px;
+        }
+    }
+    </style>
 </body>
 </html> 
