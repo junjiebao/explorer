@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>二手游艇购买流程 | Explorer Yacht</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .process-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .process-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            border-radius: 15px;
+        }
+
+        .process-intro h1 {
+            color: #2d3748;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .process-intro p {
+            color: #4a5568;
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .process-step {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .process-step h2 {
+            color: #2b6cb0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .step-number {
+            background: #2b6cb0;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 0.8em;
+        }
+
+        .process-step ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .process-step li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .process-step li:before {
+            content: "•";
+            color: #2b6cb0;
+            font-size: 1.5em;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .additional-resources {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        .additional-resources h3 {
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .additional-resources ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .additional-resources li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .additional-resources li:before {
+            content: "→";
+            color: #2b6cb0;
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .process-intro h1 {
+                font-size: 2em;
+            }
+
+            .process-step {
+                padding: 20px;
+            }
+
+            .process-step h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        /* 添加按钮样式 */
+        .service-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            margin-left: 15px;
+            background: #2b6cb0;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .service-btn:hover {
+            background: #2c5282;
+            transform: translateY(-2px);
+        }
+
+        .service-btn .arrow {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-btn:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        .step-content {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        .step-image {
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .step-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .step-content {
+                flex-direction: column;
+            }
+            
+            .step-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 复用顶部导航 -->
+    <div class="top-bar">
+        <a href="index.html" class="brand">
+            <img src="https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg/r%5Bwidth%5D=32&r%5Bheight%5D=32/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.webp" 
+                 alt="探险游艇"
+                 class="brand-icon">
+            <span>探险游艇 | Explorer Yacht</span>
+        </a>
+    </div>
+
+    <nav class="main-nav">
+        <ul class="nav-links">
+            <li><a href="index.html">首页</a></li>
+            <li class="dropdown">
+                <a href="index.html">探险游艇分类</a>
+                <ul class="dropdown-menu">
+                    <li><a href="circumnavigation.html">环球探险游艇</a></li>
+                    <li><a href="research.html">科考探险游艇</a></li>
+                    <li><a href="polar.html">极地探险游艇</a></li>
+                    <li><a href="longrange.html">远航探险游艇</a></li>
+                    <li><a href="regional.html">短距探险游艇</a></li>
+                </ul>
+            </li>
+            <li><a href="knowledge.html">探险游艇知识</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系方式</a></li>
+        </ul>
+        <button class="menu-btn">MENU</button>
+    </nav>
+
+    <div class="process-container">
+        <div class="process-intro">
+            <h1>二手游艇购买指南</h1>
+            <p>从初步准备到扬帆起航，本指南将帮助您轻松完成游艇购买过程，每一步都做到心中有数。</p>
+        </div>
+
+        <!-- 步骤1：初步准备 -->
+        <div class="process-step">
+            <h2><span class="step-number">1</span>初步准备</h2>
+            <div class="step-content">
+                <div class="step-text">
+                    <p>在决定购买游艇之前，请先明确以下关键问题：</p>
+                    <ul>
+                        <li>用途规划：您将如何使用游艇？是周末休闲、长途航行、商务需求还是钓鱼娱乐？</li>
+                        <li>预算评估：不仅是购买费用，还需考虑年度维护、存储和保险开销。</li>
+                        <li>需求清单：列出游艇必须具备的功能和设施，以便更有针对性地选择。</li>
+                    </ul>
+                </div>
+                <div class="step-image">
+                    <img src="https://www.example.com/images/yacht-planning.jpg" alt="游艇规划">
+                </div>
+            </div>
+        </div>
+
+        <!-- 步骤2：筛选合适的游艇 -->
+        <div class="process-step">
+            <h2><span class="step-number">2</span>筛选合适的游艇</h2>
+            <div class="step-content">
+                <div class="step-text">
+                    <p>在选择阶段，与专业游艇经纪人合作将为您提供更高效的支持：</p>
+                    <ul>
+                        <li>经纪人协助：经纪人将帮助您审查潜在游艇，安排虚拟或实地参观。</li>
+                        <li>明确目标：根据需求清单筛选出符合您预算和用途的游艇。</li>
+                    </ul>
+                </div>
+                <div class="step-image">
+                    <img src="https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg" alt="游艇选择">
+                </div>
+            </div>
+        </div>
+
+        <!-- 步骤3：提出报价 -->
+        <div class="process-step">
+            <h2><span class="step-number">3</span>提出报价</h2>
+            <div class="step-content">
+                <div class="step-text">
+                    <p>报价是一个重要环节，需要综合多方面信息：</p>
+                    <ul>
+                        <li>分析要价：经纪人会考虑游艇的挂牌价格、上市时间和市场趋势。</li>
+                        <li>报价内容：包括报价金额、具体条款和有效期限。</li>
+                        <li>附加条件：可将检查、融资或其他意外情况作为成交条件。</li>
+                    </ul>
+                </div>
+                <div class="step-image">
+                    <img src="https://cdn.boatinternational.com/convert/bi_prd/bi/library_images/FaUrHK5kTmy8gpEoSKW4_oceanxplorer-sea-trials.jpg" alt="报价谈判">
+                </div>
+            </div>
+        </div>
+
+        <!-- 步骤4：谈判与协议达成 -->
+        <div class="process-step">
+            <h2><span class="step-number">4</span>谈判与协议达成</h2>
+            <ul>
+                <li>准备价格区间：为谈判做好充分准备。</li>
+                <li>协商过程：可能需要多次报价与还价的过程。</li>
+                <li>确认协议：达成协议后，支付约10%的押金以保留游艇。</li>
+            </ul>
+        </div>
+
+        <!-- 步骤5：海上调查 -->
+        <div class="process-step">
+            <h2><span class="step-number">5</span>游艇验船</h2>
+            <ul>
+                <li>聘请调查员：专业的游艇验船师将评估游艇的结构和机械状况。</li>
+                <li>发现问题：识别潜在隐患或需要修复的地方。</li>
+                <li>保险要求：多数游艇保险公司在您注册游艇时要求提供调查报告。</li>
+            </ul>
+        </div>
+
+        <!-- 步骤6：根据调查结果作出决策 -->
+        <div class="process-step">
+            <h2><span class="step-number">6</span>根据调查结果作出决策</h2>
+            <ul>
+                <li>接受游艇：调查一切都满意，可以按价完成购买。</li>
+                <li>协商调整：根据发现的问题协商维修或降低价格。</li>
+                <li>放弃购买：如发现重大问题，终止交易。</li>
+            </ul>
+        </div>
+
+        <!-- 步骤7：完成交易 -->
+        <div class="process-step">
+            <h2><span class="step-number">7</span>完成交易</h2>
+            <ul>
+                <li>处理文件：聘请专业海事法律专家完成销售协议和注册手续。</li>
+                <li>支付尾款：签署文件并完成资金转账。</li>
+                <li>购买保险：在获得游艇所有权前，一定要确保游艇保险已经生效。</li>
+            </ul>
+        </div>
+
+        <!-- 附加资源 -->
+        <div class="additional-resources">
+            <h3>温馨小提示</h3>
+            <ul>
+                <li>
+                    我们的预算工具：提前帮助您合理规划年度费用
+                    <a href="index.html#cost-calculator" class="service-btn cost-btn">
+                        使用成本计算器
+                        <span class="arrow">→</span>
+                    </a>
+                </li>
+                <li>
+                    我们的船检服务：为您提供船检专家和文件专家的服务
+                    <a href="contact.html" class="service-btn contact-btn">
+                        联系我们
+                        <span class="arrow">→</span>
+                    </a>
+                </li>
+                <li>
+                    我们的保险服务：在交易完成前，务必提前购买游艇保险
+                    <a href="contact.html" class="service-btn contact-btn">
+                        联系我们
+                        <span class="arrow">→</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>Copyright © 2020 - 2024 New Yachting FZE, LLC. All Rights Reserved.</p>
+            </div>
+            <div class="footer-right">
+                <a href="admin-login.html" class="admin-link">管理入口</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
