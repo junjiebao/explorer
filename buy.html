@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游艇购买 - 迪拜新游艇</title>
+    <meta name="description" content="迪拜新游艇提供全新和二手游艇销售，包括各大知名品牌如Princess, Sunseeker, Azimut等">
+    <meta name="keywords" content="游艇销售,游艇购买,迪拜游艇,豪华游艇,超级游艇">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="buy.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="images/blue logo only.png" alt="迪拜新游艇 Logo" class="logo-img">
+                <div class="logo">
+                    <div class="logo-cn">迪拜新游艇</div>
+                    <div class="logo-en">New Yachting LLC</div>
+                </div>
+            </div>
+            <button class="mobile-nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="buy.html" class="active">游艇购买</a></li>
+                <li><a href="rent.html">游艇租赁</a></li>
+                <li><a href="blog.html">游艇资讯</a></li>
+                <li><a href="#contact">联系我们</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>游艇购买</h1>
+            <p>为您提供全球顶级品牌游艇，专业的购买建议和完善的售后服务</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="yacht-filters">
+            <div class="filter-group">
+                <label for="brand">品牌</label>
+                <select id="brand">
+                    <option value="">全部品牌</option>
+                    <option value="Admiral">Admiral</option>
+                    <option value="Azimut">Azimut</option>
+                    <option value="Benetti">Benetti</option>
+                    <option value="CRN">CRN</option>
+                    <option value="Custom Line">Custom Line</option>
+                    <option value="Damen">Damen</option>
+                    <option value="Dunya Yachts">Dunya Yachts</option>
+                    <option value="Majesty">Majesty</option>
+                    <option value="Nomad">Nomad</option>
+                    <option value="Numarine">Numarine</option>
+                    <option value="Riva">Riva</option>
+                    <option value="San Lorenzo">San Lorenzo</option>
+                    <option value="Sensation">Sensation</option>
+                    <option value="Sunseeker">Sunseeker</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="length">长度</label>
+                <select id="length">
+                    <option value="">全部长度</option>
+                    <option value="20-30">20-30米</option>
+                    <option value="30-40">30-40米</option>
+                    <option value="40-50">40-50米</option>
+                    <option value="50-60">50-60米</option>
+                    <option value="60+">60米以上</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="price">价格</label>
+                <select id="price">
+                    <option value="">全部价格</option>
+                    <option value="0-5">500万以下</option>
+                    <option value="5-10">500-1000万</option>
+                    <option value="10-20">1000-2000万</option>
+                    <option value="20-30">2000-3000万</option>
+                    <option value="30-50">3000-5000万</option>
+                    <option value="50+">5000万以上</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="condition">状态</label>
+                <select id="condition">
+                    <option value="">全部</option>
+                    <option value="new">全新</option>
+                    <option value="used">二手</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="yacht-grid">
+            <!-- 游艇列表将由JavaScript动态加载 -->
+        </section>
+
+        <div class="contact-cta">
+            <h2>需要专业建议？</h2>
+            <p>我们的游艇专家随时为您提供专业的购买建议</p>
+            <a href="#contact" class="btn">联系我们</a>
+        </div>
+    </main>
+
+    <footer>
+        <section id="contact" class="contact-section">
+            <h2>联系我们</h2>
+            <div class="contact-info">
+                <div class="phone">
+                    <i class="fas fa-phone"></i>
+                    Whatsapp/电话: +971 56 101 8837 (UAE); +968 9788 0718 (Oman); 中国电话(China)： +86 136 0181 9937
+                </div>
+                <div class="email">
+                    <i class="fas fa-envelope"></i>
+                    邮箱: Info@xinyouting.com; Sales@xinyouting.com; Charter@xinyouting.com; Build@xinyouting.com
+                </div>
+                <div class="address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    地址: Dubai Harbor, Dubai Marina, Dubai, United Arab Emirates
+                </div>
+            </div>
+        </section>
+        <p>&copy; 2022-2025 迪拜新游艇 New Yachting. All rights reserved.</p>
+    </footer>
+    <script src="nav.js" defer></script>
+</body>
+</html> 
