@@ -1,13 +1,13 @@
 class BlogManager {
     constructor() {
-        this.articles = [];
+        this.articles = JSON.parse(localStorage.getItem('blogPosts')) || [];
         this.currentCategory = 'all';
         this.init();
     }
 
     async init() {
         // 如果localStorage中没有文章，则添加示例文章
-        if (!localStorage.getItem('articles')) {
+        if (this.articles.length === 0) {
             this.addSampleArticles();
         }
         await this.loadArticles();
@@ -129,14 +129,14 @@ class BlogManager {
 
         // 确保新文章显示在顶部
         this.articles = [...sampleArticles.reverse(), ...this.articles];
-        localStorage.setItem('articles', JSON.stringify(this.articles));
+        localStorage.setItem('blogPosts', JSON.stringify(this.articles));
     }
 
     async loadArticles() {
         try {
             // 从localStorage获取文章数据
-            const articles = JSON.parse(localStorage.getItem('blogPosts')) || [];
-            this.renderArticles(articles);
+            this.articles = JSON.parse(localStorage.getItem('blogPosts')) || [];
+            this.renderArticles(this.articles);
         } catch (error) {
             console.error('Error loading articles:', error);
             this.renderArticles([]); // 显示空状态
@@ -226,6 +226,20 @@ class BlogManager {
         // 移除HTML标签并截取前150个字符
         const plainText = content.replace(/<[^>]+>/g, '');
         return plainText.length > 150 ? plainText.slice(0, 150) + '...' : plainText;
+    }
+
+    // 添加保存文章的方法
+    saveArticle(article) {
+        // 生成唯一ID
+        article.id = Date.now().toString();
+        // 添加时间戳
+        article.date = new Date().toISOString();
+        // 将新文章添加到数组开头
+        this.articles.unshift(article);
+        // 保存到localStorage
+        localStorage.setItem('blogPosts', JSON.stringify(this.articles));
+        // 重新渲染文章列表
+        this.renderArticles(this.articles);
     }
 }
 
